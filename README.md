@@ -20,7 +20,7 @@ python main.py defender -tp
 ```
 2. To reproduce the experiment results reported in the paper, we can execute `main.py`:
 ```
-python main.py defender random_subspace -tp
+python main.py defender -d random_subspace -tp
 ```
 
 Please follow the helper function in `main.py`, if you'd like to execute other defenses. All learned model will be saved into the current directory under `save` folder which can be reset in the file of `conf`
