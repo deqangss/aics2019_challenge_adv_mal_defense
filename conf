@@ -1,0 +1,21 @@
+[DEFAULT]
+project_root = /home/deqiangli/projects/Research/aics2019_challenge_adv_mal_defense/
+
+[dataset]
+trainset = %(project_root)s/challenge/training_data.tgz
+test_data = %(project_root)s/challenge/test_data_corrected.tgz
+test_ground_truth = %(project_root)s/challenge/test_ground_truth.tgz
+dataX = %(project_root)s/data/X.pkl
+datay = %(project_root)s/data/y.pkl
+normalizer = %(project_root)s/data/normalizer
+threshold = %(project_root)s/data/thresholder
+
+[experiments]
+basic_dnn = %(project_root)s/save/basic_dnn/
+feature_bnrz_dnn = %(project_root)s/save/feature_bnrz_dnn/
+adv_training_dnn = %(project_root)s/save/adv_training_dnn/
+joint_defense =  %(project_root)s/save/joint_defense/
+random_subspace = %(project_root)s/save/random_subspace/
+
+[common]
+gpu_idx = 0
