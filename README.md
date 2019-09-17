@@ -1,7 +1,7 @@
 This code repository for the paper [Enhancing Robustness of Deep Neural Networks Against Adversarial Malware Samples: Principles, Framework, and AICS'2019 Challenge](https://arxiv.org/abs/1812.08108), Li et al., AICS 2019
 
 ## Overview
-Four kinds of defenses are implemented against adversarial evasion attacks produced by AICS 2019 organiser. We have put descriptions of the challenge problem in the directory `challenge`. More information can be found [here](http://www-personal.umich.edu/~arunesh/AICS2019/challenge.html).  
+Four kinds of defenses are implemented against adversarial evasion attacks produced by the AICS 2019 organiser. The descriptions of the challenge problem are put in the folder `challenge`. More information can be found [here](http://www-personal.umich.edu/~arunesh/AICS2019/challenge.html).  
 
 ## Dependencies:
 * python 2.7 or python 3.6
@@ -23,7 +23,7 @@ python main.py defender -tp
 python main.py defender random_subspace -tp
 ```
 
-Other defenses can be produced by slightly different commands. Please follow the helper function in `main.py`, if you'd like to execute them. All learned model will be saved into the default directory of `save` which is set in the file of `conf`
+Please follow the helper function in `main.py`, if you'd like to execute other defenses. All learned model will be saved into the current directory under `save` folder which can be reset in the file of `conf`
 
 
 ## Citation
