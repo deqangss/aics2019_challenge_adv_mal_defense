@@ -37,7 +37,7 @@ ADV_TRAIN_HP = {
 ADV_TRAIN_HP.update(DNN_HP)
 
 class PGDAdam(object):
-    """We consider the l-infinity constraint for each sample, but the perturbation direction is calculated in the adam optimizer rather than the l-infinity space"""
+    """The perturbation direction is calculated in the adam optimizer rather than the l-infinity space"""
     def __init__(self, targeted_model, input_dim, normalizer, verbose = False, **kwargs):
         self.lr = AUG_PARAM['learning_rate']
         self.batch_size = AUG_PARAM['batch_size']
