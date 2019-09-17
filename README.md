@@ -23,7 +23,7 @@ python main.py defender -tp
 python main.py defender -d random_subspace -tp
 ```
 
-Please follow the helper function in `main.py`, if you'd like to execute other defenses. All learned model will be saved into the current directory under `save` folder which can be reset in the file of `conf`
+Please follow the helper function in `main.py` if you'd like to execute other defenses. All learned model will be saved into the current directory under `save` folder which can be reset in the file of `conf`
 
 
 ## Citation
