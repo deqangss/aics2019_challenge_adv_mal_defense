@@ -2,13 +2,8 @@
 
 import os
 import sys
-from datetime import datetime
-from timeit import default_timer
 
 import tensorflow as tf
-import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import f1_score
 
 proj_dir = os.path.dirname(os.path.dirname(__file__))
 sys.path.append(proj_dir)
@@ -17,7 +12,6 @@ from defenses.basic_dnn import BasicDNN, graph, DNN_HP
 from defenses.adv_regularization import PGDAdam
 from defenses.feature_binarization_dnn import binarization
 from utils import utils
-from dataset.input_preprocessing import get_median
 from config import config
 
 AUG_PARAM = {
@@ -137,7 +131,7 @@ class JointDefense(BasicDNN):
             raise ValueError("trial is a positive integer.")
 
     def get_logits(self, dataX):
-        """called after model graph defined"""
+        """called after static model graph called"""
         return self.nn(dataX, self.hidden_layers, self.output_dim, is_training=False, name=self.model_name, reuse=True)[-1]
 
     def forward(self, x_tensor, y_tensor, reuse=False):
