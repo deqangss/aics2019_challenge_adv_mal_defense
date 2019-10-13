@@ -15,6 +15,7 @@ basic_dnn = %(project_root)s/save/basic_dnn/
 feature_bnrz_dnn = %(project_root)s/save/feature_bnrz_dnn/
 adv_training_dnn = %(project_root)s/save/adv_training_dnn/
 joint_defense =  %(project_root)s/save/joint_defense/
+dae_rpst_learn_dnn = %(project_root)s/save/dae_rpst_learn_dnn/
 random_subspace = %(project_root)s/save/random_subspace/
 
 [common]
