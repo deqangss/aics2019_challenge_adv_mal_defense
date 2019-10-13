@@ -1,6 +1,6 @@
 from time import sleep
 from defenses import BasicDNN, FeatureBinarizationDNN, AdversarialTrainingRegDNN, \
-    JointDefense, RandomSubspaceMethod
+    DAE_RPST_DNN, JointDefense, RandomSubspaceMethod
 
 from config import logging
 
@@ -16,13 +16,15 @@ class Defender(object):
             self.defense = FeatureBinarizationDNN()
         elif self.defense_method_name == 'adv_training_dnn':
             self.defense = AdversarialTrainingRegDNN()
+        elif self.defense_method_name == 'dae_rpst_dnn':
+            self.defense = DAE_RPST_DNN()
         elif self.defense_method_name == 'joint_defense':
             self.defense = JointDefense()
         elif self.defense_method_name == 'random_subspace':
             self.defense = RandomSubspaceMethod()
         else:
             raise ValueError(
-                "Please choose method from 'basic_dnn', 'feature_bnrz_dnn', 'adv_training_dnn', 'joint_defense', and 'random_subspace'.")
+                "Please choose method from 'basic_dnn', 'feature_bnrz_dnn', 'adv_training_dnn', 'dae_rpst_dnn', 'joint_defense', and 'random_subspace'.")
 
     def train(self):
         self.defense.mode = 'train'

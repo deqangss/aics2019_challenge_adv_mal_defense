@@ -60,7 +60,7 @@ class PGDAdam(object):
         self.scaled_clip_min = normalize_transform(np.reshape(self.clip_min, (1, -1)), normalizer=self.normalizer)
         self.scaled_clip_max = normalize_transform(np.reshape(self.clip_max, (1, -1)), normalizer=self.normalizer)
 
-    def project_pertubations(self, x_input, perturbations):
+    def project_perturbations(self, x_input, perturbations):
         # boundary
         return tf.clip_by_value(x_input + perturbations,
                                 clip_value_min= self.scaled_clip_min,
@@ -176,7 +176,7 @@ class AdversarialTrainingRegDNN(BasicDNN):
             hyper_params = ADV_TRAIN_HP
         self.hp_params = utils.ParamWrapper(hyper_params)
 
-        # initilization
+        # initialization
         if not (os.path.exists(config.get('dataset', 'dataX')) and
                 os.path.exists(config.get('dataset', 'datay')) and
                 os.path.exists(config.get('dataset', 'normalizer'))):
@@ -225,7 +225,7 @@ class AdversarialTrainingRegDNN(BasicDNN):
                     tf.abs(init_perturbations) > 1. - eta),
             )
 
-            init_x_batch_ext = self.inner_maximizer.project_pertubations(
+            init_x_batch_ext = self.inner_maximizer.project_perturbations(
                 x_batch_ext,
                 init_perturbations
             )
@@ -273,10 +273,10 @@ class AdversarialTrainingRegDNN(BasicDNN):
         if self.mode == 'train':
             aug_x, aug_y = self.data_augment_graph(x_tensor, y_tensor, self.hp_params.trials)
             # debug info
-            aug_x = tf.Print(aug_x,
-                             [tf.reduce_mean(tf.reduce_sum(tf.abs(aug_x - x_tensor), axis=-1))],
-                             message="Debug info: the average perturbations:",
-                             summarize=self.hp_params.batch_size)
+            # aug_x = tf.Print(aug_x,
+            #                  [tf.reduce_mean(tf.reduce_sum(tf.abs(aug_x - x_tensor), axis=-1))],
+            #                  message="Debug info: the average perturbations:",
+            #                  summarize=self.hp_params.batch_size)
             self.aug_x = tf.cond(self.is_training,
                                  lambda : tf.concat([x_tensor, aug_x], axis=0),
                                  lambda : x_tensor

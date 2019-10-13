@@ -95,7 +95,7 @@ class JointDefense(BasicDNN):
                     tf.abs(init_perturbations) > 1. - eta),
             )
 
-            init_x_batch_ext = self.inner_maximizer.project_pertubations(
+            init_x_batch_ext = self.inner_maximizer.project_perturbations(
                 x_batch_ext,
                 init_perturbations
             )

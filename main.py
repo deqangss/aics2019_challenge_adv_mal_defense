@@ -12,7 +12,7 @@ def _main():
     # creat arguments for defender
     defender_parser = subparsers.add_parser('defender', help = 'Defend the classifier (learner).')
     defender_parser.add_argument('-d', '--defense', dest='defense', type = str, default= 'basic_dnn',
-                                 choices=['basic_dnn', 'feature_bnrz_dnn', 'adv_training_dnn', 'joint_defense',
+                                 choices=['basic_dnn', 'feature_bnrz_dnn', 'adv_training_dnn', 'dae_rpst_dnn', 'joint_defense',
                                           'random_subspace'], required= False)
     defender_parser.add_argument('-t', '--train', help = 'Training defense model', action= 'store_true', default=False)
     defender_parser.add_argument('-p', '--prediction', help = 'Predict labels for test samples (including adversarial version).',
