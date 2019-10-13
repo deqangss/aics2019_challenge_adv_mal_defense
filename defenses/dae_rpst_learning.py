@@ -1,5 +1,5 @@
 """
-adversarial training using small perturbations
+Denoise Autoencoder (DAE) using small perturbations
 """
 
 import os
